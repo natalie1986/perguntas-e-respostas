@@ -1,0 +1,34 @@
+<%- include ('partials/header.ejs')%>
+
+<body>
+    <%- include ('partials/navbar.ejs')%>
+    
+
+    <div class="container">
+        <hr>
+        <h1>Perguntas </h1>
+        <hr>
+        <a href="/perguntar" class="btn btn-primary">Perguntar</a>
+        <hr>
+        
+        <!--condição percorrendo o array que recebeu as variáveis de perguntas banco de dados sendo listadas para exibição na view --> 
+        <% perguntas.forEach(perguntas => { %> 
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h3><%= perguntas.titulo %></h3> 
+                </div>
+
+                <div class="card-footer">
+                    <a href="/pergunta/<%= perguntas.id %>"><button class="btn btn-primary">Responder</button></a>
+                </div>
+            </div>
+
+
+        <% }) %>
+
+    </div>
+    
+</body>
+
+<%- include ('partials/footer.ejs')%>
